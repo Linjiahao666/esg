@@ -1,0 +1,604 @@
+/* Google Fonts Import - Must be first */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap");
+
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+/*
+ * ESG Dashboard - Unified Green Design System
+ * 
+ * Primary:     #059669 (Emerald 600) - 主色调
+ * Secondary:   #14B8A6 (Teal 500) - 辅助色 (社会责任)
+ * Tertiary:    #22C55E (Green 500) - 第三色 (公司治理)
+ * Background:  #ECFDF5 (Emerald 50) - 背景色
+ * Text:        #064E3B (Emerald 900) - 主文字色
+ * 
+ * Typography: Poppins (标题) + Open Sans (正文)
+ * Key Effects: 圆角 (16-24px)，自然阴影，流畅曲线
+ */
+
+/* Root Theme Variables */
+:root {
+  /* ESG Primary Palette - All Green */
+  --esg-primary: #059669;
+  --esg-primary-light: #10b981;
+  --esg-primary-dark: #047857;
+
+  /* ESG Section Colors - Unified Green Family */
+  --esg-environment: #059669; /* Emerald */
+  --esg-social: #14b8a6; /* Teal */
+  --esg-governance: #22c55e; /* Green */
+  --esg-cta: #10b981;
+
+  /* Background & Surface */
+  --esg-bg: #ecfdf5;
+  --esg-surface: #ffffff;
+  --esg-surface-elevated: #f0fdf4;
+
+  /* Text Colors */
+  --esg-text-primary: #064e3b;
+  --esg-text-secondary: #065f46;
+  --esg-text-muted: #047857;
+
+  /* Semantic Colors */
+  --esg-success: #10b981;
+  --esg-warning: #f59e0b;
+  --esg-danger: #ef4444;
+  --esg-info: #14b8a6;
+
+  /* Typography */
+  --font-heading: "Poppins", system-ui, sans-serif;
+  --font-body: "Open Sans", system-ui, sans-serif;
+
+  /* Spacing & Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  /* ====== Nuxt UI Theme Overrides ====== */
+  /* Override default UI background to match ESG theme */
+  --ui-bg: #ecfdf5;
+  --ui-bg-elevated: #f0fdf4;
+  --ui-bg-muted: #d1fae5;
+  --ui-bg-inverted: #064e3b;
+
+  /* Override UI text colors */
+  --ui-text: #064e3b;
+  --ui-text-muted: #047857;
+  --ui-text-dimmed: #059669;
+  --ui-text-highlighted: #022c22;
+  --ui-text-inverted: #ecfdf5;
+
+  /* Override UI border colors */
+  --ui-border: #a7f3d0;
+  --ui-border-muted: #d1fae5;
+  --ui-border-inverted: #064e3b;
+}
+
+/* Dark Mode Theme */
+.dark {
+  --esg-bg: #022c22;
+  --esg-surface: #064e3b;
+  --esg-surface-elevated: #065f46;
+  --esg-text-primary: #ecfdf5;
+  --esg-text-secondary: #a7f3d0;
+  --esg-text-muted: #6ee7b7;
+
+  /* ====== Nuxt UI Dark Mode Overrides ====== */
+  --ui-bg: #022c22;
+  --ui-bg-elevated: #064e3b;
+  --ui-bg-muted: #065f46;
+  --ui-bg-inverted: #ecfdf5;
+
+  --ui-text: #ecfdf5;
+  --ui-text-muted: #a7f3d0;
+  --ui-text-dimmed: #6ee7b7;
+  --ui-text-highlighted: #ffffff;
+  --ui-text-inverted: #022c22;
+
+  --ui-border: #065f46;
+  --ui-border-muted: #064e3b;
+  --ui-border-inverted: #ecfdf5;
+}
+
+/* Base Typography */
+body {
+  font-family: var(--font-body);
+  color: var(--esg-text-primary);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+}
+
+/* ESG Section Indicator Colors */
+.esg-environment {
+  color: var(--esg-environment);
+}
+.esg-social {
+  color: var(--esg-social);
+}
+.esg-governance {
+  color: var(--esg-governance);
+}
+
+.bg-esg-environment {
+  background-color: var(--esg-environment);
+}
+.bg-esg-social {
+  background-color: var(--esg-social);
+}
+.bg-esg-governance {
+  background-color: var(--esg-governance);
+}
+
+/* Card Enhancements - Organic Biophilic Style */
+.esg-card {
+  background: var(--esg-surface);
+  border-radius: var(--radius-lg);
+  box-shadow:
+    0 4px 6px -1px rgb(5 150 105 / 0.1),
+    0 2px 4px -2px rgb(5 150 105 / 0.1);
+  transition: all 0.2s ease-out;
+}
+
+.esg-card:hover {
+  box-shadow:
+    0 10px 15px -3px rgb(5 150 105 / 0.1),
+    0 4px 6px -4px rgb(5 150 105 / 0.1);
+}
+
+/* Stat Card Styles */
+.esg-stat {
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--esg-surface) 0%, var(--esg-surface-elevated) 100%);
+  border: 1px solid rgb(5 150 105 / 0.1);
+}
+
+/* Progress Indicators */
+.esg-progress {
+  height: 8px;
+  border-radius: 9999px;
+  background: rgb(5 150 105 / 0.1);
+  overflow: hidden;
+}
+
+.esg-progress-bar {
+  height: 100%;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, var(--esg-primary) 0%, var(--esg-primary-light) 100%);
+  transition: width 0.5s ease-out;
+}
+
+/* Animation with reduced motion support */
+@media (prefers-reduced-motion: no-preference) {
+  .esg-fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Interactive Elements */
+.esg-interactive {
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+}
+
+.esg-interactive:hover {
+  transform: translateY(-2px);
+}
+
+/* ====== Custom Scrollbar Styles ====== */
+/* Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--esg-bg);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--esg-primary-light) 0%, var(--esg-primary) 100%);
+  border-radius: 8px;
+  border: 2px solid var(--esg-bg);
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--esg-primary) 0%, var(--esg-primary-dark) 100%);
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--esg-bg);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--esg-primary) var(--esg-bg);
+}
+
+/* Dark Mode Scrollbar */
+.dark ::-webkit-scrollbar-track {
+  background: var(--esg-bg);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #10b981 0%, #059669 100%);
+  border-color: var(--esg-bg);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #34d399 0%, #10b981 100%);
+}
+
+/* ====== Global Animation System ====== */
+/* Animation Timing Functions */
+:root {
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Fade Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Scale Animations */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.05);
+  }
+}
+
+/* Slide Animations */
+@keyframes slideInUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Pulse & Glow */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    box-shadow:
+      0 0 5px var(--esg-primary),
+      0 0 10px var(--esg-primary-light);
+  }
+  50% {
+    box-shadow:
+      0 0 20px var(--esg-primary),
+      0 0 30px var(--esg-primary-light);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Float Animation */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* Spin Animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Animation Utility Classes */
+.animate-fade-in {
+  animation: fadeIn 0.4s var(--ease-smooth) forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s var(--ease-spring) forwards;
+}
+
+.animate-fade-in-down {
+  animation: fadeInDown 0.5s var(--ease-spring) forwards;
+}
+
+.animate-fade-in-left {
+  animation: fadeInLeft 0.5s var(--ease-spring) forwards;
+}
+
+.animate-fade-in-right {
+  animation: fadeInRight 0.5s var(--ease-spring) forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.4s var(--ease-spring) forwards;
+}
+
+.animate-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Staggered Animation Delays */
+.delay-75 {
+  animation-delay: 75ms;
+}
+.delay-100 {
+  animation-delay: 100ms;
+}
+.delay-150 {
+  animation-delay: 150ms;
+}
+.delay-200 {
+  animation-delay: 200ms;
+}
+.delay-300 {
+  animation-delay: 300ms;
+}
+.delay-400 {
+  animation-delay: 400ms;
+}
+.delay-500 {
+  animation-delay: 500ms;
+}
+
+/* Hover Animations */
+.hover-lift {
+  transition:
+    transform 0.3s var(--ease-spring),
+    box-shadow 0.3s var(--ease-smooth);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 12px 24px -8px rgba(5, 150, 105, 0.2),
+    0 4px 8px -4px rgba(5, 150, 105, 0.1);
+}
+
+.hover-scale {
+  transition: transform 0.3s var(--ease-spring);
+}
+
+.hover-scale:hover {
+  transform: scale(1.03);
+}
+
+.hover-glow {
+  transition: box-shadow 0.3s var(--ease-smooth);
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+}
+
+/* Card Animation Enhancement */
+.esg-card {
+  animation: fadeInUp 0.5s var(--ease-spring) forwards;
+  opacity: 0;
+}
+
+.esg-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 20px 25px -5px rgb(5 150 105 / 0.15),
+    0 8px 10px -6px rgb(5 150 105 / 0.1);
+}
+
+/* Page Transition Classes */
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.3s var(--ease-smooth);
+}
+
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+/* Layout Transition */
+.layout-enter-active,
+.layout-leave-active {
+  transition: all 0.4s var(--ease-smooth);
+}
+
+.layout-enter-from,
+.layout-leave-to {
+  opacity: 0;
+  filter: blur(4px);
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ====== Sidebar Active State - Unified Green ====== */
+.sidebar-item-active {
+  background: linear-gradient(135deg, #059669 0%, #10b981 100%) !important;
+  color: white !important;
+  font-weight: 500;
+  box-shadow:
+    0 4px 12px -2px rgba(5, 150, 105, 0.4),
+    0 2px 6px -2px rgba(5, 150, 105, 0.2);
+}
+
+.sidebar-item-active:hover {
+  background: linear-gradient(135deg, #047857 0%, #059669 100%) !important;
+}
+
+/* Loading Skeleton */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--ui-bg-muted) 0%,
+    var(--ui-bg-elevated) 50%,
+    var(--ui-bg-muted) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-md);
+}
+
+/* Button Press Effect */
+.btn-press {
+  transition: transform 0.1s ease;
+}
+
+.btn-press:active {
+  transform: scale(0.97);
+}

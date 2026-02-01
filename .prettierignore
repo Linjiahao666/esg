@@ -1,0 +1,8 @@
+.output
+.nuxt
+node_modules
+dist
+public
+coverage
+*.min.js
+.github
