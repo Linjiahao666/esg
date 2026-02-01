@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1769888102254,
+      "tag": "0000_fair_excalibur",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1769891754677,
+      "tag": "0001_supreme_trish_tilby",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1769892631877,
+      "tag": "0002_faulty_fallen_one",
+      "breakpoints": true
+    }
+  ]
+}
